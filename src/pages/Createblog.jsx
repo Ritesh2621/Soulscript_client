@@ -94,7 +94,7 @@ const Createblog = () => {
           onChange={handleChange}
         />
         <button
-          className="border-2 border-gray-300 p-2 m-2 rounded-md"
+          className="border-2 border-gray-300 hover:bg-black hover:text-white p-2 m-2 rounded-md"
           type="submit"
         >
           Create-Post

@@ -42,7 +42,7 @@ const Editblog = () => {
 
   return (
     <div className="create-recipe">
-      <h1 className="text-3xl m-2 font-semibold text-center ">Update Post</h1>
+      <h1 className="text-3xl m-2 font-mono text-center ">Update Post</h1>
       <form className="flex flex-col items-center p-3" >
         {/* <label htmlFor="tittle">Tittle</label> */}
         <input
@@ -60,7 +60,7 @@ const Editblog = () => {
           name="desc"
           value={post.desc}
           onChange={(e) => setPost({ ...post, desc: e.target.value })}
-          className="border-2 border-gray-300 w-[50%] p-2 m-2 rounded-md"
+          className="border-2 border-gray-300 w-[50%] h-[200px] p-2 m-2 rounded-md"
         />
         {/* <label htmlFor="category">Category</label> */}
         <input
@@ -91,11 +91,11 @@ const Editblog = () => {
         />
         <div className="flex items-center">
         <button
-          className="border-2 border-gray-300 p-2 m-2 rounded-md"
+          className="border-2 w-[100px] border-gray-300 bg-black text-white p-2 m-2 rounded-md"
           type="submit"
           onClick={submit}
         >
-          Update-Post
+          Update
         </button>
        
      

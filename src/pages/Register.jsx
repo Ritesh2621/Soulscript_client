@@ -10,37 +10,42 @@ export default function Registration() {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-    const res =  await axios.post("http://localhost:4000/auth/register", {
+      const res = await axios.post("http://localhost:4000/auth/register", {
         email,
         username,
         password,
       });
       console.log(res);
-     
+
       alert("Registration Completed! Now login.");
-      if(res.status === !200) {
+      if (res.status !== 200) {
         alert("Registration Failed");
       }
-     
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center mt-20 pt-6 sm:justify-center sm:pt-0">
+    <div className="mt-[50px] flex flex-col items-center justify-center space-y-6 md:space-y-0 md:flex-row md:justify-around">
+      <div className="h-auto w-full max-w-md p-3 flex flex-col items-start justify-center">
+        <p className="text-4xl md:text-7xl font-serif">Welcome To SoulScript</p>
+        <p className="text-lg ml-40 md:text-2xl font-thin mt-4 text-center">
+          - "Stories That Connect, Insights That Inspire"
+        </p>
+      </div>
+      <div className="relative w-full max-w-md h-auto flex flex-col items-center justify-center shadow-2xl overflow-hidden p-4 bg-white md:w-96 md:h-[500px]">
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold text-purple-600">Register</h3>
+            <h3 className="text-3xl md:text-4xl font-thin">Register</h3>
           </a>
         </div>
-        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
+        <div className="w-full px-6 py-4 mt-6 bg-white rounded-lg">
           <form onSubmit={onSubmit}>
             <div>
               <label
                 htmlFor="email"
-                className="block text-lg font-medium text-gray-700 undefined"
+                className="block text-sm font-semibold text-gray-800"
               >
                 Email
               </label>
@@ -48,17 +53,17 @@ export default function Registration() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
+                  placeholder="Email"
                   value={email}
                   onChange={(ev) => setEmail(ev.target.value)}
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
             <div className="mt-4">
               <label
                 htmlFor="name"
-                className="block text-lg font-medium text-gray-700 undefined"
+                className="block text-sm font-semibold text-gray-800"
               >
                 Name
               </label>
@@ -66,17 +71,17 @@ export default function Registration() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="username"
+                  placeholder="Username"
                   value={username}
                   onChange={(ev) => setuserName(ev.target.value)}
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
             <div className="mt-4">
               <label
                 htmlFor="password"
-                className="block text-lg font-medium text-gray-700 undefined"
+                className="block text-sm font-semibold text-gray-800"
               >
                 Password
               </label>
@@ -84,15 +89,15 @@ export default function Registration() {
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                   value={password}
                   onChange={(ev) => setPassword(ev.target.value)}
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
 
-            <button className="mt-6 w-full" type="submit">
+            <button className="mt-6 w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-black rounded-md hover:bg-white hover:text-black focus:outline-none" type="submit">
               Register
             </button>
             <div className="flex items-center justify-end mt-4 text-sm text-gray-600 underline hover:text-gray-900">

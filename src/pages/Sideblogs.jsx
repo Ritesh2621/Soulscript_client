@@ -22,9 +22,9 @@ const Sideblogs = () => {
   return (
     <>
          {blog.map((blog) => (
-                  <li key={blog._id} className="p-2 mt-2">
+                  <li key={blog._id} className="p-3 mt-2 w-[300px]">
                   <div onClick={refresh}>
-                        <Link to={`/blogs/${blog._id}`}  className="border text-sm bg-slate-200 text-blue-800  rounded-lg p-[5px]">{blog.tittle}</Link>
+                        <Link to={`/blogs/${blog._id}`}  className=" text-sm bg-slate-50 text-black  rounded-lg p-2">{blog.tittle}</Link>
                   </div>
                   </li>
                 ))}

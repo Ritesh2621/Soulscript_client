@@ -31,7 +31,7 @@ const DetailView = () => {
   
   return (
     <>
-      <div className="lg:flex lg:flex-row bg-slate-200 md:flex md:flex-col sm:flex sm:flex-col  ">
+      <div className="lg:flex lg:flex-row md:flex md:flex-col sm:flex sm:flex-col  ">
         <div className=" lg:w-[100%] md:w-[100%] sm:w-[100%] flex flex-col items-center  ">
           <div className="xl:w-[85%] lg:w-[85%] md:w-[90%] sm:w-[80%] bg-white flex flex-col items-center mt-10">
             <h2 className="font-bold text-3xl text-center m-4">
