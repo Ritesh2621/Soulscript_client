@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { FaUser } from "react-icons/fa";
 
 const Home = () => {
   const [blog, setBlog] = useState([]);
-  const [visibleRecords, setVisibleRecords] = useState(4); // Start with 6 records visible
+  const [visibleRecords, setVisibleRecords] = useState(4); // Start with 4 records visible
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -27,41 +26,42 @@ const Home = () => {
   };
 
   return (
-    <div className="overflow-hidden mt-[50px]">
-      <p className="font-serif text-5xl m-3 ml-24 w-[400px]">
-        See what we’ve <span className="text-5xl font-semibold">written lately</span>
+    <div className="overflow-hidden mt-12 mb-6 px-4 sm:px-6 lg:px-8">
+      <p className="font-serif text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8">
+        See what we’ve{" "}
+        <span className="text-3xl sm:text-4xl md:text-5xl font-semibold">
+          written lately
+        </span>
       </p>
-      <ul className="flex flex-wrap justify-evenly mt-[30px]">
+      <ul className="flex flex-wrap gap-6 md:gap-8 justify-center">
         {blog.slice(0, visibleRecords).map((blog) => (
-          <li key={blog._id}>
-            <div className="rounded-3xl p-2 m-2">
+          <li key={blog._id} className="w-full sm:w-1/2 lg:w-1/3">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <Link to={`/blogs/${blog._id}`}>
-                <div className="">
-                  <img
-                    className="h-[450px] w-[400px] m-2 object-fill object-center rounded-2xl"
-                    src={blog.image}
-                    alt={blog.name}
-                  />
-                </div>
-                <div className="flex flex-col w-[350px] ml-4">
-                  <div className="flex flex-row items-center justify-between">
-                    <p className="border text-base bg-slate-50 text-black rounded-full p-2">
+                <img
+                  className="h-60 sm:h-72 lg:h-80 w-full object-cover"
+                  src={blog.image}
+                  alt={blog.name}
+                />
+                <div className="p-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center">
+                    <p className="border text-base bg-slate-50 text-black rounded-full px-3 py-1 mb-2 sm:mb-0">
                       {blog.category}
                     </p>
-                    <div className="flex flex-row items-center">
-                      <FaUser className="m-3 font-light" />
-                      <div className="flex flex-col">
-                        <p className="m-0 p-0 text-sm font-semibold">
-                          {blog.author}
-                        </p>
-                        <p className="m-0 p-0 text-xs">
-                          {moment(blog.date).format("YYYY-MM-DD ")}
+                    <div className="flex items-center space-x-2">
+                      <FaUser className="text-gray-500" />
+                      <div className="text-sm">
+                        <p className="font-semibold">{blog.author}</p>
+                        <p className="text-xs text-gray-500">
+                          {moment(blog.date).format("YYYY-MM-DD")}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <h2 className="p-1 font-bold text-2xl my-1">{blog.tittle}</h2>
-                  <p className="w-full p-1 font-serif">
+                  <h2 className="text-lg sm:text-xl font-bold mt-2 mb-1">
+                    {blog.title}
+                  </h2>
+                  <p className="text-sm text-gray-700">
                     {blog.desc.slice(0, 90)}...
                   </p>
                 </div>
@@ -71,10 +71,10 @@ const Home = () => {
         ))}
       </ul>
       {visibleRecords < blog.length && (
-        <div className="flex justify-center items-center mt-[20px]">
+        <div className="flex justify-center mt-6">
           <button
             onClick={loadMore}
-            className="border p-4 rounded-3xl bg-slate-50 hover:bg-black hover:text-white text-xl font-sans font-medium cursor-pointer"
+            className="border p-3 rounded-lg bg-slate-50 hover:bg-black hover:text-white text-base font-medium cursor-pointer transition duration-300"
           >
             Load More...
           </button>
