@@ -14,7 +14,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/blogs/best");
+        const res = await axios.get("https://soulscript.onrender.com/blogs/best");
         // Use a Set to ensure uniqueness by blog ID
         const uniqueBlogs = Array.from(
           new Set(res.data.map((b) => b._id))

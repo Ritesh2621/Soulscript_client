@@ -16,7 +16,7 @@ const Editblog = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/blogs/edit/${id}`, { ...post });
+      await axios.put(`https://soulscript.onrender.com/blogs/edit/${id}`, { ...post });
       alert("Blog Updated Successfully");
       navigate("/");
     } catch (err) {
@@ -29,7 +29,7 @@ const Editblog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let res = await axios.get(`http://localhost:4000/blogs/${id}`);
+        let res = await axios.get(`https://soulscript.onrender.com/blogs/${id}`);
         setPost(res.data);
         console.log(res.data);
         // toast.success("Blog Updated Successfully");

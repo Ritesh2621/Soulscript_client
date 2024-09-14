@@ -10,7 +10,7 @@ export default function Registration() {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/auth/register", {
+      const res = await axios.post("https://soulscript.onrender.com/auth/register", {
         email,
         username,
         password,

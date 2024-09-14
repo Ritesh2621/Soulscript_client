@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/blogs");
+        const res = await axios.get("https://soulscript.onrender.com/blogs");
         setBlog(res.data);
         console.log(res.data);
       } catch (err) {

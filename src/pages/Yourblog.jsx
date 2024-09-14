@@ -15,7 +15,7 @@ const Yourblog = () => {
     const confirmed = window.confirm("Are you sure you want to delete this blog?");
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:4000/blogs/${id}`);
+        await axios.delete(`https://soulscript.onrender.com/blogs/${id}`);
         alert("Blog Deleted Successfully");
         refresh();
       } catch (err) {
@@ -29,7 +29,7 @@ const Yourblog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/blogs/myblog/${userId}`
+          `https://soulscript.onrender.com/blogs/myblog/${userId}`
         );
         setBlog(response.data);
       } catch (err) {

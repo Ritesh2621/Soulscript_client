@@ -26,7 +26,7 @@ const Createblog = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:4000/blogs",
+        "https://soulscript.onrender.com/blogs",
         { ...blog },
         {
           headers: { authorization: cookies.access_token },

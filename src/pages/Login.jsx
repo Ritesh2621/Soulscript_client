@@ -13,7 +13,7 @@ export default function Login() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/auth/login", {
+      const res = await axios.post("https://soulscript.onrender.com/auth/login", {
         email,
         username,
         password,
